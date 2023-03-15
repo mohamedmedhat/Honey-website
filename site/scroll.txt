@@ -1,0 +1,2 @@
+Scroll Reveal => get the Scroll code which put in html and then
+ write it function in js
