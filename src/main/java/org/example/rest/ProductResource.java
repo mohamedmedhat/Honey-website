@@ -1,4 +1,4 @@
-package org.example.web;
+package org.example.rest;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
@@ -7,7 +7,7 @@ import org.example.model.Product;
 import org.example.service.ProductService;
 
 import java.util.List;
-
+// JAX-RS
 @Path("/products")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

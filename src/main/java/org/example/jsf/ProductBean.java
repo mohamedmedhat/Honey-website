@@ -1,4 +1,4 @@
-package org.example.web;
+package org.example.jsf;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
