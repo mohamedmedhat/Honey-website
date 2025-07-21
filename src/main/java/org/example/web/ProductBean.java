@@ -9,7 +9,7 @@ import org.example.service.ProductService;
 import java.io.Serializable;
 
 @Name("productBean")
-@RequestScoped
+@RequestScoped  // with jsf
 public class ProductBean implements Serializable {
     private Long id;
     private Product product;
