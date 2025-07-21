@@ -1,0 +1,4 @@
+<admin-object-resource enabled="true"
+                       jndi-name="jms/productQueue"
+                       res-type="jakarta.jms.Queue"
+                       class-name="com.sun.messaging.Queue"/>

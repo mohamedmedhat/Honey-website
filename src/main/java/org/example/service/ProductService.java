@@ -6,6 +6,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.annotation.Loggable;
+import org.example.jms.ProductMessageProducer;
 import org.example.model.Product;
 import org.example.repository.ProductRepository;
 
@@ -17,6 +18,8 @@ import java.util.List;
 public class ProductService {
     @Inject
     private ProductRepository productRepository;
+    @Inject
+    private ProductMessageProducer productMessageProducer;
 
     public void createProduct(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         Product product = new Product();
@@ -47,5 +50,6 @@ public class ProductService {
 
     public void save(Product p){
         productRepository.save(p);
+        productMessageProducer.sendProductCreated(p);
     }
 }
