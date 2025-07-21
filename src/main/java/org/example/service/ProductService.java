@@ -10,6 +10,7 @@ import org.example.email.EmailSender;
 import org.example.jms.ProductMessageProducer;
 import org.example.model.Product;
 import org.example.repository.ProductRepository;
+import org.example.ws.ProductWebSocket;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,6 +35,7 @@ public class ProductService {
         this.productRepository.save(product);
         res.sendRedirect(req.getContextPath() + "/shop");
         emailSender.sendEmail("customer@example.com", "Thanks!", "Your product has been added.");
+        ProductWebSocket.broadcast("New product added: " + product.getName());
     }
 
     public List<Product> getProducts() {
