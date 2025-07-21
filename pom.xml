@@ -71,6 +71,13 @@
             <version>2.1.2</version> <!-- Use the latest -->
         </dependency>
 
+        <!-- jmx -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-jmx</artifactId>
+            <version>12.0.23</version>
+        </dependency>
+
     </dependencies>
 
     <build>
