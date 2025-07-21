@@ -5,16 +5,25 @@ import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.example.annotation.Loggable;
+import org.example.email.EmailSender;
+import org.example.jms.ProductMessageProducer;
 import org.example.model.Product;
 import org.example.repository.ProductRepository;
+import org.example.ws.ProductWebSocket;
 
 import java.io.IOException;
 import java.util.List;
 
+@Loggable
 @ApplicationScoped
 public class ProductService {
     @Inject
     private ProductRepository productRepository;
+    @Inject
+    private ProductMessageProducer productMessageProducer;
+    @Inject
+    private EmailSender emailSender;
 
     public void createProduct(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         Product product = new Product();
@@ -25,6 +34,8 @@ public class ProductService {
 
         this.productRepository.save(product);
         res.sendRedirect(req.getContextPath() + "/shop");
+        emailSender.sendEmail("customer@example.com", "Thanks!", "Your product has been added.");
+        ProductWebSocket.broadcast("New product added: " + product.getName());
     }
 
     public List<Product> getProducts() {
@@ -45,5 +56,6 @@ public class ProductService {
 
     public void save(Product p){
         productRepository.save(p);
+        productMessageProducer.sendProductCreated(p);
     }
 }

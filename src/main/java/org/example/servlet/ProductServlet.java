@@ -1,4 +1,4 @@
-package org.example.web;
+package org.example.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,7 +10,7 @@ import org.example.service.ProductService;
 
 import java.io.IOException;
 import java.util.List;
-
+// with jsp
 @WebServlet("/shop")
 public class ProductServlet extends HttpServlet {
     private ProductService productService;

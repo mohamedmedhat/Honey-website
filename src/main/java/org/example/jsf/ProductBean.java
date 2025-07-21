@@ -1,4 +1,4 @@
-package org.example.web;
+package org.example.jsf;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
@@ -9,7 +9,7 @@ import org.example.service.ProductService;
 import java.io.Serializable;
 
 @Name("productBean")
-@RequestScoped
+@RequestScoped  // with jsf
 public class ProductBean implements Serializable {
     private Long id;
     private Product product;

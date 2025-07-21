@@ -7,9 +7,13 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
 import java.time.LocalDateTime;
 
 @Entity
+@XmlRootElement(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,6 +33,9 @@ public class Product {
 
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    public Product() {}
+
+    @XmlElement
     public Long getId() {
         return id;
     }
@@ -37,6 +44,7 @@ public class Product {
         this.id = id;
     }
 
+    @XmlElement
     public double getPrice() {
         return price;
     }
@@ -45,6 +53,7 @@ public class Product {
         this.price = price;
     }
 
+    @XmlElement
     public String getName() {
         return name;
     }
@@ -53,6 +62,7 @@ public class Product {
         this.name = name;
     }
 
+    @XmlElement
     public String getDescription() {
         return description;
     }
@@ -61,6 +71,7 @@ public class Product {
         this.description = description;
     }
 
+    @XmlElement
     public String getImagePath() {
         return imagePath;
     }
@@ -69,6 +80,7 @@ public class Product {
         this.imagePath = imagePath;
     }
 
+    @XmlElement
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }

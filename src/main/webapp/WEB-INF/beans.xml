@@ -1,2 +1,5 @@
-<beans xmlns="https://jakarta.ee/xml/ns/jakartaee"
-       version="3.0" bean-discovery-mode="all" />
+<beans xmlns="https://jakarta.ee/xml/ns/jakartaee" version="3.0" bean-discovery-mode="all">
+    <interceptors>
+        <class>org.example.interceptor.LoggingInterceptor</class>
+    </interceptors>
+</beans>
