@@ -5,12 +5,14 @@ import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.example.annotation.Loggable;
 import org.example.model.Product;
 import org.example.repository.ProductRepository;
 
 import java.io.IOException;
 import java.util.List;
 
+@Loggable
 @ApplicationScoped
 public class ProductService {
     @Inject
